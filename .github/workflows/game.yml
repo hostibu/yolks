@@ -5,7 +5,8 @@ on:
       - main
     paths:
       - game/**/Dockerfile
-  workflow_dispatch:
+  workflow_dispatch:  # Manuel başlatma için gerekli etkinlik
+
 jobs:
   get-paths:
     name: Get Dockerfile paths
@@ -18,9 +19,13 @@ jobs:
       - name: Get Dockerfile paths
         id: get_paths
         run: |
+          set -x  # Komutları adım adım yazdırmaya başla
+          # Dockerfile'ları bul ve yol karakterlerini düzgün işle
           paths=$(find game -name Dockerfile -print0 | xargs -0 -n 1 dirname)
           echo "Found paths: $paths"
+          # Yolları JSON formatına dönüştür
           echo "paths=$(echo $paths | jq -R -s -c 'split(\" \")')" >> $GITHUB_OUTPUT
+          
   build-and-push:
     name: Build and Push Docker Images
     runs-on: ubuntu-latest
