@@ -1,11 +1,11 @@
 ## Select OS
-FROM --platform=linux/amd64 debian:stable-slim
+FROM debian:stable-slim
 
 ## Configure
 LABEL author="Hostibu" maintainer="destek@hostibu.com"
 
 # Terminal
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ## Commands
 RUN apt update && \
