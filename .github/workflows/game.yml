@@ -24,8 +24,8 @@ jobs:
           paths=$(find game -name Dockerfile -print0 | xargs -0 -n 1 dirname)
           echo "Found paths: $paths"
           # Yolları JSON formatına dönüştür
-          # Tek tırnak ile düzgün kaçırma işlemi
-          echo "paths=$(echo $paths | jq -R -s -c 'split(\" \")')" >> $GITHUB_OUTPUT
+          # `split(" ")` komutunu tek tırnak ile yazıyoruz
+          echo "paths=$(echo $paths | jq -R -s -c 'split(" ")')" >> $GITHUB_OUTPUT
           
   build-and-push:
     name: Build and Push Docker Images
