@@ -19,7 +19,7 @@ jobs:
         run: |
           paths=$(find game -name Dockerfile -print | sed 's|/Dockerfile||')
           echo "paths=$(echo $paths | jq -R -s -c 'split(\" \")')" >> $GITHUB_OUTPUT
-  build-and-push:
+  push:
     name: Build and Push Docker Images
     runs-on: ubuntu-latest
     needs: get-paths
