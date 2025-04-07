@@ -20,3 +20,4 @@ jobs:
           file: ./game/Minecraft/PocketMine-MP/Dockerfile
           tags: |
             ghcr.io/hostibu/yolks:pocketmine-mp
+          push: true
