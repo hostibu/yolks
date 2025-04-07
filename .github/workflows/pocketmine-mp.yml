@@ -12,11 +12,11 @@ jobs:
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: hostibu
           password: ${{ secrets.SECRET_PASSWORD }}
       - uses: docker/build-push-action@v4
         with:
           context: ./game/Minecraft/PocketMine-MP
           file: ./game/Minecraft/PocketMine-MP/Dockerfile
           tags: |
-            ghcr.io/${{ github.repository_owner }}/yolks:pocketmine-mp
+            ghcr.io/hostibu/yolks:pocketmine-mp
