@@ -1,18 +1,15 @@
 ## Select OS
-FROM ubuntu:18.04
+FROM alpine:latest
 
 ## Configure
 LABEL author="hostibu" maintainer="operasyon@hostibu.com"
 
-# Terminal
-ENV DEBIAN_FRONTEND=noninteractive
-
 ## Commands
-RUN apt update && \
-    apt upgrade -y && \
-    apt install -y wget unzip lib32gcc1 libsdl2-2.0-0 && \
-    rm -rf /var/lib/apt/lists/* && \
-    useradd -m -d /home/hostibu -s /bin/bash hostibu
+RUN apk update && \
+    apk upgrade --available && \
+    apk add --no-cache wget unzip lib32-glibc libsdl2 \
+    && rm -rf /var/cache/apk/* \
+    && adduser -D -h /home/hostibu -s /bin/sh hostibu
 
 ## Security
 USER hostibu
@@ -21,4 +18,4 @@ WORKDIR /home/hostibu
 
 ## Run commands
 COPY ./run.sh /run.sh
-CMD [ "/bin/bash", "/run.sh" ]
+CMD [ "/bin/sh", "/run.sh" ]
