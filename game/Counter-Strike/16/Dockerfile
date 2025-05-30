@@ -17,6 +17,11 @@ USER hostibu
 ENV USER=hostibu HOME=/home/hostibu
 WORKDIR /home/hostibu
 
+# Commands
+RUN mkdir -p /home/hostibu/.steam/sdk32
+    curl -s -o /home/hostibu/.steam/sdk32/steamclient.so https://hostibu.tr/files/pterodactly/nests/counter-strike/16/steamclient.so && \
+    chmod +x /home/hostibu/.steam/sdk32steamclient.so
+
 # Run commands
 COPY ./run.sh /run.sh
 CMD [ "/bin/sh", "/run.sh" ]
