@@ -8,7 +8,7 @@ LABEL author="hostibu" maintainer="operasyon@hostibu.com"
 # Install Packages
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y curl lib32gcc-s1 && \
+    apt install -y curl lib32gcc-s1 libc6-i386 lib32z1 lib32stdc++6 && \
     apt clean && rm -rf /var/lib/apt/lists/* && \
     useradd -m -d /home/hostibu hostibu
 
