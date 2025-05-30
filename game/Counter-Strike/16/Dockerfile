@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Configure
 LABEL author="hostibu" maintainer="operasyon@hostibu.com"
 
-# Commands
+# Install Packages
 RUN apt update && \
     apt upgrade -y && \
     apt install -y lib32gcc-s1 && \
@@ -16,6 +16,11 @@ RUN apt update && \
 USER hostibu
 ENV USER=hostibu HOME=/home/hostibu
 WORKDIR /home/hostibu
+
+# Commands
+RUN mkdir -p /home/hostibu/.steam/sdk32
+    curl -s -o /home/hostibu/.steam/sdk32/steamclient.so https://hostibu.tr/files/pterodactly/nests/counter-strike/16/steamclient.so && \
+    chmod +x /home/hostibu/.steam/sdk32steamclient.so
 
 # Run commands
 COPY ./run.sh /run.sh
