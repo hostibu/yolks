@@ -1,21 +1,22 @@
-## Select OS
-FROM alpine:latest
+# Select OS
+FROM --platform=$TARGETOS/$TARGETARCH debian:stable-slim
+ENV DEBIAN_FRONTEND=noninteractive
 
-## Configure
+# Configure
 LABEL author="hostibu" maintainer="operasyon@hostibu.com"
 
-## Commands
-RUN apk update && \
-    apk upgrade --available && \
-    apk add --no-cache wget unzip \
-    && rm -rf /var/cache/apk/* \
-    && adduser -D -h /home/hostibu -s /bin/bash hostibu
+# Commands
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y lib32gcc-s1 && \
+    apt clean && rm -rf /var/lib/apt/lists/* && \
+    useradd -m -d /home/hostibu hostibu
 
-## Security
+# Security
 USER hostibu
 ENV USER=hostibu HOME=/home/hostibu
 WORKDIR /home/hostibu
 
-## Run commands
+# Run commands
 COPY ./run.sh /run.sh
 CMD [ "/bin/sh", "/run.sh" ]
