@@ -16,8 +16,8 @@ jobs:
           password: ${{ secrets.SECRET_PASSWORD }}
       - uses: docker/build-push-action@v4
         with:
-          context: ./game/Minecraft/PocketMine-MP
-          file: ./game/Minecraft/PocketMine-MP/Dockerfile
+          context: ./game/Minecraft/Pocketmine-MP
+          file: ./game/Minecraft/Pocketmine-MP/Dockerfile
           tags: |
-            ghcr.io/${{ github.repository_owner }}/yolks:pocketmine-mp
+            ghcr.io/${{ github.repository_owner }}/game:pocketmine-mp
           push: true

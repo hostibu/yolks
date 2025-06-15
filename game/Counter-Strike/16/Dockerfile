@@ -1,5 +1,5 @@
 ## Select OS
-FROM alpine:latest
+FROM --platform=$TARGETOS/$TARGETARCH alpine:latest
 
 ## Configure
 LABEL author="hostibu" maintainer="operasyon@hostibu.com"
