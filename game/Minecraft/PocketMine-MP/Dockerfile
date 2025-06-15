@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ## Commands
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y curl jar jq libcurl4 && \
+    apt install -y curl tar jq libcurl4 && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -m -d /home/hostibu -s /bin/bash hostibu
 
