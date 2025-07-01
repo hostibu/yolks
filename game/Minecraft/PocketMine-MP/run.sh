@@ -9,14 +9,12 @@ rm -rf start.sh
 curl -sL https://hostibu.tr/files/pterodactly/nests/minecraft/pocketmine-mp/php-version.json -o php-version.json
 
 if [[ "${PHP_VERSION}" == *"latest"* ]]; then
-    IFS='-' read -ra PARTS <<< ${PHP_VERSION}
     if [[ "${PARTS[1]}" == "PM4" ]]; then
         php_version=$(jq -r '.php["latest"].pm4' php-version.json)
     elif [[ "${PARTS[1]}" == "PM5" ]]; then
         php_version=$(jq -r '.php["latest"].pm5' php-version.json)
     fi
 else
-    IFS='-' read -ra PARTS <<< "${PHP_VERSION}"
     if [[ "${PARTS[0]}" == "8.0" ]]; then
         if [[ "${PARTS[1]}" == "PM4" ]]; then
             php_version=$(jq -r '.php["8.0"].pm4' php-version.json)
