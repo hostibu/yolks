@@ -44,6 +44,7 @@ get_updates() {
             elif [[ "${PARTS[0]}" == "8.3" ]]; then
                 php_version=$(jq -r '.php["8.3"].pm5' php-version.json)
             fi
+        fi
 
         curl -sL $php_version -o "php.tar.gz"
         tar -xzf php.tar.gz
