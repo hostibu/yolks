@@ -21,4 +21,4 @@ WORKDIR /home/hostibu
 
 ## Run commands
 COPY ./run.sh /run.sh
-CMD [ "/bin/sh", "/run.sh" ]
+CMD [ "/bin/bash", "/run.sh" ]
