@@ -8,14 +8,13 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ## Install Dependencies
 RUN dpkg --add-architecture i386 && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-        lib32gcc1 \
+    apt update && \
+    apt upgrade -y && \
+    apt install -y \
         curl \
         tar \
         ca-certificates && \
-    apt-get clean && \
+    apt clean && \
     rm -rf /var/lib/apt/lists/*
 
 ## Create User
@@ -29,4 +28,4 @@ WORKDIR /home/container
 COPY ./run.sh /run.sh
 CMD [ "/bin/bash", "/run.sh" ]
 
-## libstdc++6 libstdc++6:i386
+## libstdc++6 libstdc++6:i386 lib32gcc1
