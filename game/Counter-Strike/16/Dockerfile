@@ -8,9 +8,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ## Install Dependencies
 RUN dpkg --add-architecture i386 && \
-    apt update && \
-    apt upgrade -y && \
-    apt install -y \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+        lib32gcc1 \
         curl \
         tar \
         ca-certificates && \
