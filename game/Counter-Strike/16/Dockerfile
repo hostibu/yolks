@@ -12,7 +12,8 @@ RUN dpkg --add-architecture i386 && \
     apt-get upgrade -y && \
     apt-get install -y \
         lib32gcc-s1 \
-        libc6-i386 \
+        libc6:i386 \
+        libstdc++6:i386 \
         curl \
         tar \
         ca-certificates && \
