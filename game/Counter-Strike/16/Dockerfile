@@ -1,5 +1,5 @@
 ## Select OS
-FROM --platform=$TARGETOS/$TARGETARCH debian:buster-slim
+FROM --platform=$TARGETOS/$TARGETARCH debian:stable-slim
 
 ## Configure
 LABEL author="Hostibu" maintainer="operasyon@hostibu.com"
