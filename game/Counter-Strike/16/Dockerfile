@@ -11,17 +11,9 @@ RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
-        lib32gcc-s1 \
-        lib32stdc++6 \
-        libc6-i386 \
-        libcurl4:i386 \
-        libtinfo5:i386 \
-        libncurses5:i386 \
-        libtcmalloc-minimal4 \
-        wget \
+        lib32gcc1 \
         curl \
         tar \
-        gzip \
         ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -36,3 +28,5 @@ WORKDIR /home/container
 ## Run script
 COPY ./run.sh /run.sh
 CMD [ "/bin/bash", "/run.sh" ]
+
+## libstdc++6 libstdc++6:i386
