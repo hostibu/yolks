@@ -12,6 +12,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get upgrade -y && \
     apt-get install -y \
         lib32gcc-s1 \
+        libc6-i386 \
         curl \
         tar \
         ca-certificates && \
@@ -28,5 +29,3 @@ WORKDIR /home/container
 ## Run script
 COPY ./run.sh /run.sh
 CMD [ "/bin/bash", "/run.sh" ]
-
-## libstdc++6 libstdc++6:i386
