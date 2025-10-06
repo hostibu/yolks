@@ -14,10 +14,9 @@ RUN dpkg --add-architecture i386 && \
         lib32gcc-s1 \
         lib32stdc++6 \
         libc6-i386 \
-        libcurl4-gnutls-dev:i386 \
+        libcurl4:i386 \
         libtinfo5:i386 \
         libncurses5:i386 \
-        libcurl3-gnutls:i386 \
         libtcmalloc-minimal4 \
         wget \
         curl \
