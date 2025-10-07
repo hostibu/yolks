@@ -14,6 +14,7 @@ RUN dpkg --add-architecture i386 && \
         lib32gcc-s1 \
         libc6:i386 \
         libstdc++6:i386 \
+        libsdl2-2.0-0:i386 \
         ca-certificates && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
