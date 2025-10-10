@@ -16,8 +16,8 @@ jobs:
           password: ${{ secrets.SECRET_PASSWORD }}
       - uses: docker/build-push-action@v4
         with:
-          context: ./game/Counter-Strike/16
-          file: ./game/Counter-Strike/16/Dockerfile
+          context: ./games/Counter-Strike/16
+          file: ./games/Counter-Strike/16/Dockerfile
           tags: |
-            ghcr.io/${{ github.repository_owner }}/game:counter-strike-16
+            ghcr.io/${{ github.repository_owner }}/games:counter-strike-16
           push: true
