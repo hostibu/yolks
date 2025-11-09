@@ -13,7 +13,7 @@ RUN apt-get update && \
         jq \
         unzip \
         curl \
-        libcurl4 && \
+        libcurl4 \
         zlib1g \
         libgmp10 && \
     apt clean && \
